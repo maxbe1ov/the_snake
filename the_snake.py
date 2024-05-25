@@ -203,7 +203,7 @@ class Snake(GameObject):
             self.positions.insert(0, apple_pos)
             return True
 
-    def reset(self):
+    def reset(self) -> None:
         """
         При столкновении змейки с собой, происходит очищение позиций,
         и возврат к изначалной точке начала игры
