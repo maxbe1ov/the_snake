@@ -90,7 +90,7 @@ class GameObject():
         self.width = width
         self.height = height
 
-    def draw(self, rect, position):
+    def draw(self, position):
         """
         Метод draw, предназначен для переопределения
         в дочерних классах, отвечает за отрисовку объектов на игровом поле
@@ -104,7 +104,8 @@ class GameObject():
         Метод reset, предназначен для переопределения
         в дочерних классах, отвечает за сброс атрибутов объектов класса
         """
-        pass
+        raise NotImplementedError(
+            "Метод для переопределения в дочерних классах")
 
 
 class Apple(GameObject):
@@ -139,8 +140,7 @@ class Apple(GameObject):
 
     def draw(self):
         """Метод draw, отрисовывает яблоко на игровой поверхности"""
-        rect = ''
-        super().draw(rect, self.position)
+        super().draw(self.position)
 
     def reset(self):
         """
@@ -172,11 +172,10 @@ class Snake(GameObject):
 
     def draw(self):
         """Метод draw, отрисовывает змейку на игровой поверхности"""
-        rect = head_rect = ''
         for position in self.positions[:-1]:
-            super().draw(rect, position)
+            super().draw(position)
         """Отрисовка основания змейки"""
-        super().draw(head_rect, self.positions[0])
+        super().draw(self.positions[0])
 
         """Затирание последнего сегмента змеи"""
         if self.last:
