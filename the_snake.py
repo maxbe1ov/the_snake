@@ -27,7 +27,7 @@ APPLE_COLOR = (255, 0, 0)
 SNAKE_COLOR = (0, 255, 0)
 
 # Скорость движения змейки:
-SPEED = 4
+SPEED = 8
 
 # Начальная позиция
 POSITION = (0, 0)
@@ -141,9 +141,6 @@ class Apple(GameObject):
         """Метод draw, отрисовывает яблоко на игровой поверхности"""
         rect = ''
         super().draw(rect, self.position)
-        # rect = pygame.Rect(self.position, (GRID_SIZE, GRID_SIZE))
-        # pygame.draw.rect(screen, self.body_color, rect)
-        # pygame.draw.rect(screen, BORDER_COLOR, rect, 1)
 
     def reset(self):
         """
